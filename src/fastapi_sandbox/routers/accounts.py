@@ -1,5 +1,5 @@
 from datetime import UTC, datetime, timedelta
-from typing import Annotated
+from typing import Annotated, Any
 
 import jwt
 from fastapi import APIRouter, Depends, FastAPI, HTTPException, status
@@ -93,7 +93,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
 
 
 @router.post("/sign-in", response_model=UserOut)
-async def sign_in_with_password(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> UserOut:
+async def sign_in_with_password(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> Any:
     user = authenticate_user(fake_users_db, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
