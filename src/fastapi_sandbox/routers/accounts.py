@@ -47,7 +47,7 @@ class UserInDB(User):
 
 class UserOut(BaseModel):
     username: str
-    token: str
+    token: Token
     email: str | None = None
 
 
