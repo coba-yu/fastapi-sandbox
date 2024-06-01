@@ -65,6 +65,8 @@ orjson==3.10.3
     # via fastapi
 packaging==24.0
     # via gunicorn
+passlib==1.7.4
+    # via fastapi-sandbox
 platformdirs==4.2.2
     # via virtualenv
 pre-commit==3.7.1
@@ -74,6 +76,8 @@ pydantic-core==2.18.3
     # via pydantic
 pygments==2.18.0
     # via rich
+pyjwt==2.8.0
+    # via fastapi-sandbox
 python-dotenv==1.0.1
     # via uvicorn
 python-multipart==0.0.9
