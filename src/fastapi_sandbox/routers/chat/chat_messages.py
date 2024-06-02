@@ -4,8 +4,8 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 router = APIRouter(
-    prefix="/chat-ai/chat-messages",
-    tags=["chat-ai"],
+    prefix="/chat/chat-messages",
+    tags=["chat"],
     responses={404: {"description": "Not found"}},
 )
 

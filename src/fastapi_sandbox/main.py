@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from .routers import accounts
-from .routers.chat_ai import chat_messages
+from .routers.chat import chat_messages
 
 app = FastAPI()
 app.include_router(accounts.router)
