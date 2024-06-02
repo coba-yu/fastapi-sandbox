@@ -60,9 +60,9 @@ class MessageList(BaseModel):
 
 
 @router.get("/", response_model=MessageList)
-def list_messages(username: str) -> Any:
+def list_messages(username: str, user_token: str) -> Any:
     # TODO: Implement
-    print(f"{username=}")
+    print(f"{username=}, {user_token=}")
     return MessageList(
         data=[
             Message(
@@ -84,7 +84,12 @@ def list_messages(username: str) -> Any:
 
 
 @router.post("/{message_id}/feedbacks")
-def feedback_message(message_id: str = Path(), rating: str = Body(), username: str = Body()) -> Any:
+def feedback_message(
+    message_id: str = Path(),
+    rating: str = Body(),
+    username: str = Body(),
+    user_token: str = Body(),
+) -> Any:
     # TODO: Implement
-    print(f"{username=}, {message_id=}, {rating=}")
+    print(f"{username=}, {user_token=}, {message_id=}, {rating=}")
     return {"status": "success"}

@@ -23,8 +23,9 @@ class FileResponse(BaseModel):
 
 
 @router.post("/upload", response_model=FileResponse)
-def upload_file(fileb: UploadFile = File(), username: str = Form()) -> Any:
-    # TODO
+def upload_file(fileb: UploadFile = File(), username: str = Form(), user_token: str = Form()) -> Any:
+    # TODO: Implement
+    print(f"{username=}, {user_token=}")
     os.makedirs(os.path.join("/tmp", username), exist_ok=True)
     with open(os.path.join("/tmp", username, fileb.filename), "wb") as fp:
         fp.write(fileb.file.read())

@@ -33,12 +33,13 @@ class ConversationList(BaseModel):
 @router.get("/", response_model=ConversationList)
 def read_conversations(
     username: str = Query(),
+    user_token: str = Query(),
     last_id: str | None = Query(None),
     limit: int = Query(20, ge=1, le=100),
     pinned: bool = Query(False),
 ) -> Any:
     # TODO: Implement
-    print(f"{username=}, {last_id=}, {limit=}, {pinned=}")
+    print(f"{username=}, {user_token=}, {last_id=}, {limit=}, {pinned=}")
     return ConversationList(
         data=[
             Conversation(
@@ -69,7 +70,7 @@ def read_conversations(
 
 
 @router.delete("/{conversation_id}")
-def delete_conversation(conversation_id: str = Path(), username: str = Body()) -> Any:
+def delete_conversation(conversation_id: str = Path(), username: str = Body(), user_token: str = Body()) -> Any:
     # TODO: Implement
-    print(f"{username=}, {conversation_id=}")
+    print(f"{username=}, {user_token=}, {conversation_id=}")
     return {"result": "success"}
